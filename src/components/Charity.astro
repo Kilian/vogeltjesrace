@@ -1,0 +1,142 @@
+<div class="wrapper">
+  <main class="content">
+    <section class="intro">
+      <h2>Wat is een vogeltjesrace?</h2>
+
+
+
+      <div class="split">
+        <div>
+          <span>1</span>
+          <p>Vogeltjes worden verkocht als lootje. De Jinotega vogeltjes zijn handgemaakte vogeltjes uit Jinotega, Nicaragua.</p>
+        </div>
+        <div>
+          <span>2</span>
+          <p>De genummerde vogeltjes worden in de Buurtvaart te water gelaten en vanaf daar gaat de
+            wedstrijd van start!</p>
+        </div>
+        <div>
+          <span>3</span>
+          <p>De vogeltjes die als eerste de finish overkomen leveren mooie prijzen op, gesponsord vanuit de middenstand
+            van de Dorpsstraat.</p>
+        </div>
+      </div>
+
+      <h3>Een maaltijd ver weg en een maaltijd dichtbij</h3>
+      <p>
+        De opbrengst van de verkoop van de vogeltjes is voor het goede doel:
+      </p>
+
+      <div class="fifty">
+        <div>
+          <span>50%</span>
+          <p>Startende food ondernemers in Jinotega, de zusterstad van Zoetermeer in Nicaragua.</p>
+        </div>
+        <div>
+          <span>50%</span>
+          <p>Stichting 'ledereen een maaltijd' in Zoetermeer, die dit jaar naar een nieuw pand moeten verhuizen.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<style>
+  .intro {
+    padding: 4rem 0rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 1rem;
+    font-size: 3rem;
+    max-width: 100%;
+    font-family: Boogaloo;
+    color: #F08535;
+    text-align: center;
+  }
+
+  h3 {
+    margin: 4rem 0 1rem;
+    font-size: 2rem;
+    max-width: 100%;
+    font-family: Boogaloo;
+    color: #A6B22A;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  .split {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .fifty {
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    color: #fff;
+    text-align: left;
+  }
+
+  @media (max-width:920px) {
+    .fifty {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(auto);
+    }
+  }
+
+  .fifty div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+    color:
+  }
+
+
+
+  .fifty div span {
+    font-weight: 900;
+    font-size: 4rem;
+    color: #A6B22A;
+    font-family: Salsa;
+  }
+
+  .split {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    color: #fff;
+  }
+
+
+  @media (max-width:920px) {
+    .split {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(auto);
+    }
+  }
+
+  .split div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .split div span {
+    font-family: Salsa;
+    font-weight: 900;
+    font-size: 4rem;
+    line-height: 1;
+    color: #A6B22A;
+  }
+</style>

@@ -1,0 +1,165 @@
+---
+import CTA from './Cta.astro'
+---
+
+<div class="wrapper">
+  <h2>Wat is er allemaal te doen?</h2>
+  <p>Naast de vogeltjesrace zijn er gedurende de middag verschillende activiteiten.</p>
+  <div class="activity-list">
+    <div class="item">
+      <div>
+        <h3>De vogeltjesrace</h3>
+        <p>De vogeltjes worden in de Buurtvaart losgelaten en zullen via allerlei door Scouting Ashanti gemaakte
+          hindernissen de finish moeten bereiken. De Reddingsbrigade is aanwezig om extra stroming te creëren en
+          achtergebleven vogels een zetje te geven</p>
+      </div>
+      <div>
+        <img src="/assets/img/header.jpg" />
+      </div>
+    </div>
+    <div class="item">
+      <div>
+        <h3>Optredens van de band Small Talk</h3>
+        <p>Small Talk brengt met zang, gitaar, contrabas en percussie bekende nummers. Het repertoire bestaat uit disco,
+          latin, pop, golden oldies en rock & roll. Hits uit de top 2000, uitgevoerd in een geheel eigen jasje. Kortom
+          een gezellige muzikale omlijsting van de middag.</p>
+      </div>
+      <div>
+        <img src="/assets/img/header.jpg" />
+      </div>
+    </div>
+
+    <!-- <div class="item">
+      <div>
+        <h3>Circus Nevermind</h3>
+        <p>Rondom de race zijn zullen er optredens zijn van de band Small Talk, is Circus Nevermind aanwezig en
+          ondersteunt scouting Ashanti de race, maar geeft het ook een demo.</p>
+      </div>
+      <div>
+        <img src="/assets/img/header.jpg" />
+      </div>
+    </div> -->
+
+    <div class="item">
+      <div>
+        <h3>Scouting Ashanti</h3>
+        <p>Scouting Ashanti uit Zoetermeer zal de hindernissen in het water maken voor de vogeltjesrace. Daarnaast
+          zullen zij een demo geven van het rijke scoutingleven.</p>
+      </div>
+      <div>
+        <img src="/assets/img/header.jpg" />
+      </div>
+    </div>
+
+
+    <div class="item">
+      <div>
+        <h3>Kinderactiviteiten</h3>
+        <p>Naast de race zijn er diverse kinderactiviteiten. Actieve spelletjes, onder andere in samenwerking met
+          Scouting Ashanti, kleurplaat kleuren en diverse andere spellen..</p>
+      </div>
+      <div>
+        <img src="/assets/img/springkussen.jpg" />
+      </div>
+    </div>
+  </div>
+
+  <CTA />
+
+  <h2>Wij zijn er klaar voor!</h2>
+  <p>Round Table 114 Zoetermeer en de Wereldwinkel Zoetermeer kijken er naar uit dit evenement voor de tweede keer te
+    organiseren.</p>
+  <div class="activity-list">
+    <div class="item">
+      <div>
+        <h3>De Vogeltjes zijn getest!</h3>
+        <p>In 2015 is eerder de Vogeltjesrace gehouden. De vogeltjes van toen zijn er nog, maar zij het er genoeg? En
+          doen ze het nog? Round Table 114 Zoetermeer heeft ze getest!</p>
+      </div>
+      <div>
+        <img src="/assets/img/nieuws.jpg" />
+      </div>
+    </div>
+    <div class="item">
+      <div>
+        <h3>Terugblik op vogeltjesrace 2015</h3>
+        <p>Dit evenement trok in 2015 honderden bezoekers en kreeg veel media aandacht, waaronder van TV West, Radio
+          West, het Streekblad en AD. Er werd een bedrag van ruim 34.000 euro ingezameld voor het goede doel.</p>
+      </div>
+      <div>
+        <img src="/assets/img/2015.jpg" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  h2 {
+    margin: 0 0 1rem;
+    font-size: 3rem;
+    max-width: 100%;
+    font-family: Boogaloo;
+    color: #F08535;
+    text-align: center;
+  }
+
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 2rem;
+    max-width: 100%;
+    font-family: Boogaloo;
+    color: #A6B22A;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .activity-list .item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    justify-content: center;
+    margin: 4rem 0;
+  }
+
+
+
+  .activity-list p {
+    text-align: left;
+  }
+
+  .activity-list .item div {
+    flex: 1 1 50%;
+  }
+
+  .activity-list .item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  img {
+    margin: 0 auto;
+    display: block;
+    max-width: 460px;
+    border-radius: 200rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  @media (max-width:920px) {
+    .activity-list .item {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom:4rem;
+    }
+    .activity-list .item img {
+      max-width:250px;
+    }
+    .activity-list .item:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+  }
+</style>
