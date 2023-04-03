@@ -49,7 +49,7 @@ export default defineConfig({
           },
         ],
       },
-      previewStyles: ['src/styles/blog.css'],
+      //previewStyles: ['../../styles/blog.css'],
     }),
   ],
 });
