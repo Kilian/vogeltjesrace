@@ -35,6 +35,16 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 		footer {
 			text-align: center;
 			padding: 4rem 2rem;
+			margin: 0 auto;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			gap: 2rem;
+			flex-wrap: wrap;
+		}
+		footer p {
+			max-width: 55ch;
+			flex: 1 1 55ch;
 		}
 
 		h2 {
@@ -57,10 +67,9 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 	<Sponsoring />
 	<Logobar />
 	<footer>
-		<h2>Contact</h2>
 		<p>De Vogeltjesrace wordt georganiseerd door de Wereldwinkel Zoetermeer Round Table 114 Zoetermeer en Lions De Meerbloem.</p>
-		<p>Voor meer informatie: Yvette Feeke (Wereldwinkel Zoetermeer): 06 55421827, Andries Feijen (Round Table 114
-			Zoetermeer): 06 41490806</p>
+		<p>Voor meer informatie: Yvette Feeke (Wereldwinkel Zoetermeer): 06&nbsp;55421827, Andries Feijen (Round Table 114
+			Zoetermeer): 06&nbsp;41490806</p>
 	</footer>
 </body>
 
