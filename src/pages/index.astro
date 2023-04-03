@@ -15,7 +15,7 @@ import { SITE } from '../config';
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let { title } = SITE;
-let description = 'The perfect starter for your perfect blog.';
+let description = 'Vogeltjesrace 2023 Zoetermeer.';
 let permalink = 'https://vogeltjesrace.nl/';
 
 // Data Fetching: List all Markdown posts in the repo.
@@ -34,7 +34,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 	<style>
 		footer {
 			text-align: center;
-			padding: 2rem;
+			padding: 4rem 2rem;
 		}
 
 		h2 {
@@ -58,7 +58,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 	<Logobar />
 	<footer>
 		<h2>Contact</h2>
-		<p>De Vogeltjesrace wordt georganiseerd door de Wereldwinkel Zoetermeer en Round Table 114 Zoetermeer.</p>
+		<p>De Vogeltjesrace wordt georganiseerd door de Wereldwinkel Zoetermeer Round Table 114 Zoetermeer en Lions De Meerbloem.</p>
 		<p>Voor meer informatie: Yvette Feeke (Wereldwinkel Zoetermeer): 06 55421827, Andries Feijen (Round Table 114
 			Zoetermeer): 06 41490806</p>
 	</footer>

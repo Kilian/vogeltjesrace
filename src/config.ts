@@ -1,3 +1,3 @@
 export const SITE = {
-  title: 'Vogeltjesrace 2022',
+  title: 'Vogeltjesrace 2023',
 };
