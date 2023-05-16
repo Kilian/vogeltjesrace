@@ -3,6 +3,7 @@ import { SITE } from '../config';
 ---
 
 <header>
+  <video src="/assets/img/jinotega.mp4" loop muted></video>
   <div class="info">
     <div class="wrapper">
       <div class="side-by-side">
@@ -12,21 +13,47 @@ import { SITE } from '../config';
             Vogeltjesrace 2023
           </h1>
           <h2>Zaterdag 30 september van 14:00 tot 18:00</h2>
-          <p>Locatie: Buurtvaart naast het CKC, parkeerplaats Osylaan.</p>
+          <p>Locatie: Buurtvaart naast het CKC, parkeerplaats Osylaan, Zoetermeer</p>
           <h3>Optreden liveband Small Talk • 
             Scouting Ashanti • Kinderactiviteiten • Springkussen • Kleurwedstrijd</h3>
+
+          <a href="#meer">Meer info</a>
         </div>
-        <div></div>
       </div>
     </div>
   </div>
 </header>
 
+
+<script>
+  const video = document.querySelector('video');
+
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    video.setAttribute('autoplay', "true");
+    video.play();
+  }
+</script>
+
 <style>
   header {
-    background: linear-gradient(180deg, #fff 50%, #74a4d7 calc(100% - 2rem));
+    position: relative;
+    background: #2d4475;
     text-align: left;
     padding: 2rem 0rem 2rem;
+    min-height:80vh;
+    display: grid;
+    place-items: center;
+  }
+
+  video {
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    object-position: center;
+    opacity:0.15;
+    object-fit: cover;
   }
 
   @media (min-width:920px) {
@@ -40,13 +67,13 @@ import { SITE } from '../config';
     font-size: 3rem;
     max-width: 100%;
     font-family: Boogaloo;
-    color: #DA3A37;
+    color: #fb9695;
     line-height: 1;
   }
 
   h1 small {
     display: block;
-    font-size: 0.5em;
+    font-size: 0.4em;
     color: #A6B22A;
     line-height:1;
   }
@@ -64,15 +91,16 @@ import { SITE } from '../config';
     font-size: 1.25rem;
     max-width: 100%;
     font-family: Boogaloo;
-    color: #565b00;
+    color: #b2b4a0;
   }
 
   .info {
+    position: relative;
     color: #000;
   }
 
   .info p {
-    color: #DA3A37;
+    color: #fb9695;
     font-family: Boogaloo;
     margin-bottom: 1rem;
   }
@@ -89,18 +117,36 @@ import { SITE } from '../config';
 
   @media (min-width:920px) {
     h1 {
-      font-size: 4rem;
+      font-size: 6rem;
+    }
+    h1 small {
+      font-size: 2rem;
     }
     .side-by-side {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
     }
     .side-by-side div:first-child {
     padding: 2rem;
   }
 
   }
-  .side-by-side div:last-child {
-    aspect-ratio: 4/3;
-    background: url(/assets/img/background.png) no-repeat bottom center/contain;
+
+
+  a {
+    display:inline-block; 
+    background:  #1f9439;
+    color: #fff;
+    font-family: Boogaloo;
+    padding:0.5rem 2rem;
+    font-weight: bold;
+    font-size:1.5rem;
   }
+
+  a:hover,
+  a:focus {
+    color: #1f9439;
+    background: #fff;
+    text-decoration: none;
+  }
+
 </style>

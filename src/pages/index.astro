@@ -32,6 +32,12 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 <head>
 	<BaseHead {title} {description} {permalink} />
 	<style>
+
+		@media (prefers-reduced-motion: no-preference) {
+			html {
+				scroll-behavior: smooth;
+			}
+		}
 		footer {
 			text-align: center;
 			padding: 4rem 2rem;
