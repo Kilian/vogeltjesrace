@@ -139,7 +139,7 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
       .amount img {
         margin: auto;
       }
-      .amount input {
+      .amount input#loten {
         font-weight: bold;
         font-family: Boogaloo;
         width: calc(5ch + 2rem);
@@ -154,7 +154,7 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
         width: 100%;
         display: flex;
         justify-content: space-between;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         align-items: center;
       }
 
@@ -190,6 +190,15 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
         position: absolute;
         top: 0;
         left: 0;
+      }
+
+      .withbird {
+        margin-top: 0.5rem;
+        text-align: left;
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-start;
+        gap: 0.5rem;
       }
     </style>
   </head>
@@ -227,32 +236,50 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
               </label>
             </p>
             <img src="/assets/img/jinotega.png" alt="Vogeltje" />
-            <label for="vogeltjes">Aantal vogeltjes:</label>
+            <label for="loten">Aantal vogeltjes:</label>
             <div>
               <input
-                id="vogeltjes"
+                id="loten"
                 type="number"
                 min="1"
                 max="100"
                 step="1"
                 value="1"
-                name="vogeltjes"
+                name="loten"
               />
-              <span
-                >&times; €&nbsp;5,- = <strong
-                  >€&nbsp;<span id="total">5</span>,-</strong
-                >
+              <span>
+                &times; <span id="single">&euro;&nbsp;5,00</span> = <strong>
+                  <span id="total">&euro;&nbsp;5,00</span>
+                </strong>
               </span>
             </div>
+            <label class="withbird"
+              ><input type="checkbox" id="met-vogeltjes" name="met-vogeltjes" />
+              Voor ieder lot ook een vogeltje á €&nbsp;2,50 kopen</label
+            >
           </fieldset>
 
           <script>
-            const input = document.querySelector("#vogeltjes");
+            const input = document.querySelector("#loten");
+            const single = document.querySelector("#single");
             const total = document.querySelector("#total");
+            const withBirds = document.querySelector("#met-vogeltjes");
+
+            const formatter = new Intl.NumberFormat("nl-NL", {
+              style: "currency",
+              currency: "EUR",
+            });
 
             ["change", "input"].forEach((event) => {
+              withBirds.addEventListener(event, (e) => {
+                const price = e.target.checked ? 7.5 : 5;
+                single.textContent = formatter.format(price);
+                total.textContent = formatter.format(input.value * price);
+              });
+
               input.addEventListener(event, (e) => {
-                total.innerText = e.target.value * 5;
+                const price = withBirds.checked ? 7.5 : 5;
+                total.textContent = formatter.format(e.target.value * price);
               });
             });
           </script>
