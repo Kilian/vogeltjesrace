@@ -178,6 +178,19 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
       #notification .name {
         text-transform: capitalize;
       }
+
+      .hidden {
+        overflow:hidden;
+        height:0;
+        width:0;
+        margin:0;
+        padding:0;
+        opacity:0;
+        border:0;
+        position:absolute;
+        top:0;
+        left:0;
+      }
     </style>
   </head>
 
@@ -202,8 +215,13 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
           </p>
         </div>
 
-        <form name="bestel-vogeltjes" data-netlify="true">
+        <form name="bestel-vogeltjes" data-netlify="true" netlify-honeypot="bot-field">
           <fieldset class="amount">
+            <p class="hidden">
+              <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+              </label>
+            </p>
             <img src="/assets/img/jinotega.png" alt="Vogeltje" />
             <label for="vogeltjes">Aantal vogeltjes:</label>
             <div>
