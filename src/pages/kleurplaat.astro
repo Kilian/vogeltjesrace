@@ -1,0 +1,148 @@
+---
+// Component Imports
+import BaseHead from "../components/BaseHead.astro";
+import Logobar from "../components/Logobar.astro";
+import Charity from "../components/Charity.astro";
+import Sponsors from "../components/Sponsors.astro";
+import Footer from "../components/Footer.astro";
+
+import { SITE } from "../config";
+import SmallHeader from "../components/SmallHeader.astro";
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = `Kleurplaatwedstrijd | ${SITE.title}`;
+let description =
+  "Adopteer een vogeltje voor de Vogeltjesrace 2023 Zoetermeer.";
+let permalink = "https://vogeltjesrace.nl/adopteer/";
+---
+
+<html lang="nl">
+  <head>
+    <BaseHead {title} {description} {permalink} />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+
+      .formcontainer {
+        background: #fff;
+        color: #2d4475;
+        padding: 4rem 2rem;
+      }
+      .inner {
+        position: relative;
+        margin: 0 auto;
+        max-width: 45rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        max-width: 100%;
+        font-family: Boogaloo;
+        color: #f08535;
+        line-height: 1;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 2rem;
+        max-width: 100%;
+        font-family: Boogaloo;
+        color: #f08535;
+        line-height: 1;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      img {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      a {
+        margin: 1rem auto;
+        background: #1f9439;
+        color: #fff;
+        border: 0;
+
+        font-family: Boogaloo;
+        padding: 0.5rem 2rem;
+        font-weight: 500;
+        font-size: 1.5rem;
+        cursor: pointer;
+        width: 155px;
+        border-radius: 4px;
+      }
+
+      a:hover,
+      a:focus-visible {
+        background: #2d4475;
+      }
+    </style>
+  </head>
+
+  <body>
+    <SmallHeader />
+    <div class="formcontainer">
+      <div class="inner">
+        <h1>Kleurplaatwedstrijd</h1>
+        <p>
+          <b>
+            Download de kleurplaat en pak snel al je kleurpotloden, verfkwasten,
+            glitterspray en al je andere kleurspullen en maak je kleurplaat zo
+            mooi mogelijk!
+          </b>
+
+          Lever je kleurplaat in tijdens de vogeltjesrace op 30 september. De
+          mooiste kleurplaten winnen een prijs! De winnende kleurplaten worden
+          bekendgemaakt direct na afloop van de vogeltjesrace.
+        </p>
+        <img src="/assets/img/kleurplaat.svg" width="50%" alt="Kleurplaat" />
+
+        <p><a href="/assets/kleurplaat.pdf" download>Download Kleurplaat</a></p>
+
+        <h2>Voorwaarden Kleurplaatwedstrijd</h2>
+        <ul>
+          <li>
+            Kleur de kleurplaat zo mooi mogelijk in en maak kans op een mooie
+            prijs.
+          </li>
+          <li>
+            De kleurplaat is gratis te downloaden op www.vogeltjesrace.nl.
+          </li>
+          <li>
+            Lever de kleurplaat in op de dag van de vogeltjesrace op 30
+            september 2023.
+          </li>
+          <li>
+            De winnende kleurplaten worden bekendgemaakt direct na afloop van de
+            vogeltjesrace
+          </li>
+          <li>
+            Alleen als jij de winnaar bent, ontvang je per e-mail een
+            bevestiging van de gewonnen prijs.
+          </li>
+          <li>
+            De winnaar kan tot uiterlijk drie maanden na bekendmaking aanspraak
+            maken op uitreiking van de prijs. Na deze periode vervalt de
+            aanspraak op de prijs automatisch.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <Charity />
+    <Logobar />
+    <Footer />
+  </body>
+</html>

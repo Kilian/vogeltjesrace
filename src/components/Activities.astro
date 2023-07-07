@@ -1,17 +1,23 @@
 ---
-import Map from './Map.astro'
+import Map from "./Map.astro";
 ---
 
 <div class="wrapper">
   <h2>Wat is er allemaal te doen?</h2>
-  <p>Naast de vogeltjesrace zijn er gedurende de middag verschillende activiteiten.</p>
+  <p>
+    Naast de vogeltjesrace zijn er gedurende de middag verschillende
+    activiteiten.
+  </p>
   <div class="activity-list">
     <div class="item">
       <div>
         <h3>De vogeltjesrace</h3>
-        <p>De vogeltjes worden in de Buurtvaart losgelaten en zullen via allerlei door Scouting Ashanti gemaakte
-          hindernissen de finish moeten bereiken. De Reddingsbrigade is aanwezig om extra stroming te creëren en
-          achtergebleven vogels een zetje te geven</p>
+        <p>
+          De vogeltjes worden in de Buurtvaart losgelaten en zullen via allerlei
+          door Scouting Ashanti gemaakte hindernissen de finish moeten bereiken.
+          De Reddingsbrigade is aanwezig om extra stroming te creëren en
+          achtergebleven vogels een zetje te geven
+        </p>
       </div>
       <div>
         <img src="/assets/img/header.jpg" alt="" />
@@ -20,8 +26,10 @@ import Map from './Map.astro'
     <div class="item">
       <div>
         <h3>Optredens van de band Small Talk</h3>
-        <p>De band Small Talk bruist van de energie met sterke zang en dynamische solo’s. Ze spelen covers 
-          en eigen werk. </p>
+        <p>
+          De band Small Talk bruist van de energie met sterke zang en dynamische
+          solo’s. Ze spelen covers en eigen werk.
+        </p>
       </div>
       <div>
         <img src="/assets/img/smalltalk.png" alt="" />
@@ -31,23 +39,45 @@ import Map from './Map.astro'
     <div class="item">
       <div>
         <h3>Scouting Ashanti</h3>
-        <p>Scouting Ashanti uit Zoetermeer zal de hindernissen in het water maken voor de vogeltjesrace. Daarnaast
-          zullen zij een demo geven van het rijke scoutingleven.</p>
+        <p>
+          Scouting Ashanti uit Zoetermeer zal de hindernissen in het water maken
+          voor de vogeltjesrace. Daarnaast zullen zij een demo geven van het
+          rijke scoutingleven.
+        </p>
       </div>
       <div>
         <img src="/assets/img/ashanti.jpg" alt="" />
       </div>
     </div>
 
-
     <div class="item">
       <div>
         <h3>Kinderactiviteiten</h3>
-        <p>Naast de race zijn er diverse kinderactiviteiten. Actieve spelletjes, onder andere in samenwerking met
-          Scouting Ashanti, kleurplaat kleuren en diverse andere spellen..</p>
+        <p>
+          Naast de race zijn er diverse kinderactiviteiten. Actieve spelletjes,
+          onder andere in samenwerking met Scouting Ashanti, kleurplaat kleuren
+          en diverse andere spellen..
+        </p>
       </div>
       <div>
         <img src="/assets/img/springkussen.jpg" alt="" />
+      </div>
+    </div>
+
+    <div class="item">
+      <div>
+        <h3>Kleurplaatwedstrijd</h3>
+        <p>
+          Download de kleurplaat en pak snel al je kleurpotloden, verfkwasten,
+          glitterspray en al je andere kleurspullen en maak je kleurplaat zo
+          mooi mogelijk!
+        </p>
+        <p>
+          <a href="/kleurplaat/">Download de kleurplaat</a>
+        </p>
+      </div>
+      <div>
+        <img src="/assets/img/kleurplaat.svg" alt="" />
       </div>
     </div>
   </div>
@@ -55,13 +85,19 @@ import Map from './Map.astro'
   <Map />
 
   <h2>Wij zijn er klaar voor!</h2>
-  <p>Round Table 114, Lions De Meerbloem en de Wereldwinkel Zoetermeer kijken er naar uit dit evenement voor de tweede keer te organiseren.</p>
+  <p>
+    Round Table 114, Lions De Meerbloem en de Wereldwinkel Zoetermeer kijken er
+    naar uit dit evenement voor de tweede keer te organiseren.
+  </p>
   <div class="activity-list">
     <div class="item">
       <div>
         <h3>De Vogeltjes zijn getest!</h3>
-        <p>In 2015 is eerder de Vogeltjesrace gehouden. De vogeltjes van toen zijn er nog, maar zij het er genoeg? En
-          doen ze het nog? Round Table 114 Zoetermeer heeft ze getest!</p>
+        <p>
+          In 2015 is eerder de Vogeltjesrace gehouden. De vogeltjes van toen
+          zijn er nog, maar zij het er genoeg? En doen ze het nog? Round Table
+          114 Zoetermeer heeft ze getest!
+        </p>
       </div>
       <div>
         <img src="/assets/img/nieuws.jpg" alt="" />
@@ -70,8 +106,11 @@ import Map from './Map.astro'
     <div class="item">
       <div>
         <h3>Terugblik op vogeltjesrace 2015</h3>
-        <p>Dit evenement trok in 2015 honderden bezoekers en kreeg veel media aandacht, waaronder van TV West, Radio
-          West, het Streekblad en AD. Er werd een bedrag van ruim 34.000 euro ingezameld voor het goede doel.</p>
+        <p>
+          Dit evenement trok in 2015 honderden bezoekers en kreeg veel media
+          aandacht, waaronder van TV West, Radio West, het Streekblad en AD. Er
+          werd een bedrag van ruim 34.000 euro ingezameld voor het goede doel.
+        </p>
       </div>
       <div>
         <img src="/assets/img/2015.jpg" alt="" />
@@ -80,14 +119,13 @@ import Map from './Map.astro'
   </div>
 </div>
 
-
 <style>
   h2 {
     margin: 0 0 1rem;
     font-size: 3rem;
     max-width: 100%;
     font-family: Boogaloo;
-    color: #F08535;
+    color: #f08535;
     text-align: center;
   }
 
@@ -96,13 +134,15 @@ import Map from './Map.astro'
     font-size: 2rem;
     max-width: 100%;
     font-family: Boogaloo;
-    color: #A6B22A;
+    color: #a6b22a;
   }
 
   p {
     text-align: center;
   }
-
+  p + p {
+    margin-top: 1.5rem;
+  }
   .activity-list .item {
     display: flex;
     align-items: center;
@@ -111,8 +151,6 @@ import Map from './Map.astro'
     margin: 4rem auto;
     max-width: 75ch;
   }
-
-
 
   .activity-list p {
     text-align: left;
@@ -126,6 +164,12 @@ import Map from './Map.astro'
     flex-direction: row-reverse;
   }
 
+  .activity-list a {
+    color: #a6b22a;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
   img {
     margin: 0 auto;
     display: block;
@@ -133,21 +177,23 @@ import Map from './Map.astro'
     border-radius: 200rem;
     aspect-ratio: 1;
     object-fit: cover;
+    background-color: #fff;
+    border: 2px solid #a6b22a;
   }
 
-  @media (max-width:920px) {
+  @media (max-width: 920px) {
     .activity-list .item {
       flex-direction: column-reverse;
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      margin-bottom:4rem;
+      margin-bottom: 4rem;
     }
     .activity-list .item img {
-      max-width:250px;
+      max-width: 250px;
     }
     .activity-list .item:nth-child(even) {
-    flex-direction: column-reverse;
-  }
+      flex-direction: column-reverse;
+    }
   }
 </style>
