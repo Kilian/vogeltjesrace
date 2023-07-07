@@ -62,6 +62,13 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
         gap: 2rem;
       }
 
+      @media (max-width: 800px) {
+        form {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(auto);
+        }
+      }
+
       fieldset {
         margin: 0;
         border: 0;
