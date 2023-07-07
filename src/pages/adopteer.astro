@@ -180,16 +180,16 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
       }
 
       .hidden {
-        overflow:hidden;
-        height:0;
-        width:0;
-        margin:0;
-        padding:0;
-        opacity:0;
-        border:0;
-        position:absolute;
-        top:0;
-        left:0;
+        overflow: hidden;
+        height: 0;
+        width: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     </style>
   </head>
@@ -215,7 +215,11 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
           </p>
         </div>
 
-        <form name="bestel-vogeltjes" data-netlify="true" netlify-honeypot="bot-field">
+        <form
+          name="bestel-vogeltjes"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
           <fieldset class="amount">
             <p class="hidden">
               <label>
@@ -286,32 +290,32 @@ let permalink = "https://vogeltjesrace.nl/adopteer/";
             document.querySelector("form button").disabled = true;
             document.querySelector("form button").textContent = "Wachten...";
 
-            // fetch("/", {
-            //   method: "POST",
-            //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            //   body: new URLSearchParams(formData).toString(),
-            // })
-            //   .then(() => {
+            fetch("/", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: new URLSearchParams(formData).toString(),
+            })
+              .then(() => {
+                setTimeout(() => {
+                  document.querySelector("#notification .number").textContent =
+                    formData.get("telefoonnummer");
+                  document.querySelector("#notification .name").textContent =
+                    formData.get("naam");
+                  document.querySelector("#notification .price").textContent =
+                    formData.get("vogeltjes") * 5;
+                  document.querySelector("#notification .amount").textContent =
+                    formData.get("vogeltjes");
 
-            setTimeout(() => {
-              document.querySelector("#notification .number").textContent =
-                formData.get("telefoonnummer");
-              document.querySelector("#notification .name").textContent =
-                formData.get("naam");
-              document.querySelector("#notification .price").textContent =
-                formData.get("vogeltjes") * 5;
-              document.querySelector("#notification .amount").textContent =
-                formData.get("vogeltjes");
+                  document.querySelector("#notification").style.display =
+                    "block";
+                  document.querySelector("#notification").focus();
 
-              document.querySelector("#notification").style.display = "block";
-              document.querySelector("#notification").focus();
-
-              document.querySelector("form").reset();
-              myForm.querySelector("button").textContent = "Adopteer";
-              myForm.querySelector("button").disabled = false;
-            }, 1000);
-            // })
-            // .catch((error) => alert(error));
+                  document.querySelector("form").reset();
+                  myForm.querySelector("button").textContent = "Adopteer";
+                  myForm.querySelector("button").disabled = false;
+                }, 1000);
+              })
+              .catch((error) => alert(error));
           };
 
           document
