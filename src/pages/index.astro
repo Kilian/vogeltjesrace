@@ -1,82 +1,80 @@
 ---
 // Component Imports
-import BaseHead from '../components/BaseHead.astro';
-import BlogHeader from '../components/BlogHeader.astro';
-import Logobar from '../components/Logobar.astro';
-import Charity from '../components/Charity.astro';
-import Activities from '../components/Activities.astro';
-import Sponsoring from '../components/Sponsoring.astro';
-import Sponsors from '../components/Sponsors.astro';
+import BaseHead from "../components/BaseHead.astro";
+import BlogHeader from "../components/Header.astro";
+import Logobar from "../components/Logobar.astro";
+import Charity from "../components/Charity.astro";
+import Activities from "../components/Activities.astro";
+import Sponsoring from "../components/Sponsoring.astro";
+import Sponsors from "../components/Sponsors.astro";
+import Footer from "../components/Footer.astro";
 
-import { SITE } from '../config';
+import { SITE } from "../config";
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let { title } = SITE;
-let description = 'Vogeltjesrace 2023 Zoetermeer.';
-let permalink = 'https://vogeltjesrace.nl/';
+let description = "Vogeltjesrace 2023 Zoetermeer.";
+let permalink = "https://vogeltjesrace.nl/";
 
 // Data Fetching: List all Markdown posts in the repo.
 
-let allPosts = await Astro.glob('./posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+let allPosts = await Astro.glob("./posts/*.md");
+allPosts = allPosts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishDate).valueOf() -
+    new Date(a.frontmatter.publishDate).valueOf()
+);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="nl">
+  <head>
+    <BaseHead {title} {description} {permalink} />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+      footer {
+        text-align: center;
+        padding: 4rem 2rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      footer p {
+        max-width: 55ch;
+        flex: 1 1 55ch;
+      }
 
-<head>
-	<BaseHead {title} {description} {permalink} />
-	<style>
+      h2 {
+        margin: 0 0 1rem;
+        font-size: 3rem;
+        max-width: 100%;
+        font-family: Boogaloo;
+        color: #f08535;
+        text-align: center;
+      }
+    </style>
+  </head>
 
-		@media (prefers-reduced-motion: no-preference) {
-			html {
-				scroll-behavior: smooth;
-			}
-		}
-		footer {
-			text-align: center;
-			padding: 4rem 2rem;
-			margin: 0 auto;
-			display: flex;
-			align-items: flex-start;
-			justify-content: center;
-			gap: 2rem;
-			flex-wrap: wrap;
-		}
-		footer p {
-			max-width: 55ch;
-			flex: 1 1 55ch;
-		}
-
-		h2 {
-			margin: 0 0 1rem;
-			font-size: 3rem;
-			max-width: 100%;
-			font-family: Boogaloo;
-			color: #F08535;
-			text-align: center;
-		}
-	</style>
-</head>
-
-<body>
-	<BlogHeader />
-	<Logobar />
-	<Charity />
-	<Sponsors />
-	<Activities />
-	<Sponsoring />
-	<Logobar />
-	<footer>
-		<p>De Vogeltjesrace wordt georganiseerd door de Wereldwinkel Zoetermeer Round Table 114 Zoetermeer en Lions De Meerbloem.</p>
-		<p>Voor meer informatie: Yvette Feeke (Wereldwinkel Zoetermeer) 06&nbsp;55421827, Andries Feijen (Round Table 114
-			Zoetermeer) 06&nbsp;41490806 en Christ van Gestel (Lionsclub De Meerbloem) 06&nbsp;51362509</p>
-	</footer>
-</body>
-
+  <body>
+    <BlogHeader />
+    <Logobar />
+    <Charity />
+    <Sponsors />
+    <Activities />
+    <Sponsoring />
+    <Logobar />
+    <Footer />
+  </body>
 </html>

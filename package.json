@@ -10,7 +10,7 @@
     "preview": "astro preview --experimental-integrations"
   },
   "devDependencies": {
-    "astro": "2.1.9"
+    "astro": "2.8.0"
   },
   "dependencies": {
     "astro-netlify-cms": "^0.5.3"

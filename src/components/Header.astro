@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../config';
+import { SITE } from "../config";
 ---
 
 <header>
@@ -9,27 +9,30 @@ import { SITE } from '../config';
       <div class="side-by-side">
         <div>
           <h1>
-            <small>Jinotega  •  Tweede editie • Gratis toegang!</small>
+            <small>Jinotega • Tweede editie • Gratis toegang!</small>
             Vogeltjesrace 2023
           </h1>
           <h2>Zaterdag 30 september van 14:00 tot 18:00</h2>
-          <p>Locatie: Buurtvaart naast het CKC, parkeerplaats Osylaan, Zoetermeer</p>
-          <h3>Optreden liveband Small Talk • 
-            Scouting Ashanti • Kinderactiviteiten • Springkussen • Kleurwedstrijd</h3>
-
-          <a href="#meer">Meer info</a>
+          <p>
+            Locatie: Buurtvaart naast het CKC, parkeerplaats Osylaan, Zoetermeer
+          </p>
+          <h3>
+            Optreden liveband Small Talk • Scouting Ashanti • Kinderactiviteiten
+            • Springkussen • Kleurwedstrijd
+          </h3>
+          <a href="/adopteer/">Adopteer je Vogeltje(s)</a>
+          <a class="secondary" href="#meer">Meer info</a>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-
 <script>
-  const video = document.querySelector('video');
+  const video = document.querySelector("video");
 
-  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-    video.setAttribute('autoplay', "true");
+  if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    video.setAttribute("autoplay", "true");
     video.play();
   }
 </script>
@@ -40,23 +43,23 @@ import { SITE } from '../config';
     background: #2d4475;
     text-align: left;
     padding: 2rem 0rem 2rem;
-    min-height:80vh;
+    min-height: 80vh;
     display: grid;
     place-items: center;
   }
 
   video {
     position: absolute;
-    width:100%;
-    height:100%;
-    left:0;
-    top:0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
     object-position: center;
-    opacity:0.33;
+    opacity: 0.33;
     object-fit: cover;
   }
 
-  @media (min-width:920px) {
+  @media (min-width: 920px) {
     header {
       padding: 5rem 2rem 2rem;
     }
@@ -74,8 +77,8 @@ import { SITE } from '../config';
   h1 small {
     display: block;
     font-size: 0.4em;
-    color: #A6B22A;
-    line-height:1;
+    color: #a6b22a;
+    line-height: 1;
   }
 
   h2 {
@@ -83,7 +86,7 @@ import { SITE } from '../config';
     font-size: 1.75rem;
     max-width: 100%;
     font-family: Boogaloo;
-    color: #F08535;
+    color: #f08535;
   }
 
   h3 {
@@ -115,7 +118,7 @@ import { SITE } from '../config';
     padding: 0rem;
   }
 
-  @media (min-width:920px) {
+  @media (min-width: 920px) {
     h1 {
       font-size: 6rem;
     }
@@ -126,27 +129,38 @@ import { SITE } from '../config';
       grid-template-columns: 1fr;
     }
     .side-by-side div:first-child {
-    padding: 2rem;
+      padding: 2rem;
+    }
   }
-
-  }
-
 
   header a {
-    display:inline-block; 
-    background:  #1f9439;
+    display: inline-block;
+    background: #1f9439;
+    border: 2px solid #1f9439;
     color: #fff;
     font-family: Boogaloo;
-    padding:0.5rem 2rem;
+    padding: 0.5rem 2rem;
     font-weight: 500;
-    font-size:1.5rem;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  header a.secondary {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid #1f9439;
+    color: #fff;
+    font-family: Boogaloo;
+    padding: 0.5rem 2rem;
+    font-weight: 500;
+    font-size: 1.5rem;
   }
 
   header a:hover,
   header a:focus {
     color: #1f9439;
     background: #fff;
+    border-color: #fff;
     text-decoration: none;
   }
-
 </style>

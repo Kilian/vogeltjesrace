@@ -1,0 +1,309 @@
+---
+// Component Imports
+import BaseHead from "../components/BaseHead.astro";
+import Logobar from "../components/Logobar.astro";
+import Charity from "../components/Charity.astro";
+import Sponsors from "../components/Sponsors.astro";
+import Footer from "../components/Footer.astro";
+
+import { SITE } from "../config";
+import SmallHeader from "../components/SmallHeader.astro";
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = `Adopteer je vogeltje(s) | ${SITE.title}`;
+let description =
+  "Adopteer een vogeltje voor de Vogeltjesrace 2023 Zoetermeer.";
+let permalink = "https://vogeltjesrace.nl/adopteer/";
+---
+
+<html lang="nl">
+  <head>
+    <BaseHead {title} {description} {permalink} />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+
+      .formcontainer {
+        background: #fff;
+        color: #2d4475;
+        padding: 4rem 2rem;
+      }
+      .inner {
+        position: relative;
+        margin: 0 auto;
+        max-width: 65rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        max-width: 100%;
+        font-family: Boogaloo;
+        color: #f08535;
+        line-height: 1;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      h1 + p {
+        text-align: center;
+      }
+
+      form {
+        margin: 3rem auto;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 2px;
+        gap: 2rem;
+      }
+
+      fieldset {
+        margin: 0;
+        border: 0;
+      }
+
+      .info {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 2rem 3rem;
+      }
+      .info div {
+        flex: 1 0 45%;
+      }
+      .info label {
+        font-weight: bold;
+      }
+      .info small {
+        margin: 0 2px;
+        opacity: 0.75;
+      }
+      .info input {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #2d4475;
+      }
+      .info button {
+        margin-top: 1rem;
+        display: inline-block;
+        background: #1f9439;
+        color: #fff;
+        border: 0;
+
+        font-family: Boogaloo;
+        padding: 0.5rem 2rem;
+        font-weight: 500;
+        font-size: 1.5rem;
+        cursor: pointer;
+        width: 155px;
+        border-radius: 4px;
+      }
+
+      .info button:hover,
+      .info button:focus-visible {
+        background: #2d4475;
+      }
+
+      .info button[disabled] {
+        filter: grayscale(1);
+        cursor: not-allowed;
+      }
+
+      fieldset.amount {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        border-radius: 10px;
+        background: #fbe493;
+        padding: 2rem;
+        text-align: center;
+      }
+      .amount img {
+        margin: auto;
+      }
+      .amount input {
+        font-weight: bold;
+        font-family: Boogaloo;
+        width: calc(5ch + 2rem);
+        font-size: 2rem;
+        border-radius: 4px;
+        border: 1px solid rgb(45, 68, 117);
+        padding: 0.5rem;
+      }
+
+      .amount div {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        align-items: center;
+      }
+
+      #notification {
+        display: none;
+        background: #f0853522;
+        border-radius: 10px;
+        margin-top: 3rem;
+        padding: 2rem;
+      }
+      #notification h2 {
+        margin: 0;
+        font-size: 1.75rem;
+        max-width: 100%;
+        font-family: Boogaloo;
+        color: #f08535;
+      }
+      #notification .number {
+        font-weight: bold;
+      }
+      #notification .name {
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+
+  <body>
+    <SmallHeader />
+    <div class="formcontainer">
+      <div class="inner">
+        <h1>Adopteer je Vogeltje(s)</h1>
+        <p>
+          <b>
+            Doe mee aan de Vogeltjesrace op 30 september. Adopteer je
+            vogeltje(s), maak kans op mooie prijzen en steun het goede doel!
+          </b>
+        </p>
+
+        <div id="notification">
+          <h2>Bedankt voor uw adoptie <span class="name"></span>!</h2>
+          <p>
+            Via WhatsApp ontvangt u op <span class="number"></span> een betaalverzoek
+            voor €<span class="price"></span>,- en de lotnummers van <span
+              class="amount"></span> vogeltjes.
+          </p>
+        </div>
+
+        <form name="bestel-vogeltjes" data-netlify="true">
+          <fieldset class="amount">
+            <img src="/assets/img/jinotega.png" alt="Vogeltje" />
+            <label for="vogeltjes">Aantal vogeltjes:</label>
+            <div>
+              <input
+                id="vogeltjes"
+                type="number"
+                min="1"
+                max="100"
+                step="1"
+                value="1"
+                name="vogeltjes"
+              />
+              <span
+                >&times; €&nbsp;5,- = <strong
+                  >€&nbsp;<span id="total">5</span>,-</strong
+                >
+              </span>
+            </div>
+          </fieldset>
+
+          <script>
+            const input = document.querySelector("#vogeltjes");
+            const total = document.querySelector("#total");
+
+            ["change", "input"].forEach((event) => {
+              input.addEventListener(event, (e) => {
+                total.innerText = e.target.value * 5;
+              });
+            });
+          </script>
+
+          <fieldset class="info">
+            <div>
+              <label for="naam">Naam</label>
+              <input type="text" name="naam" required />
+            </div>
+            <div>
+              <label for="email">Email adres</label>
+              <input type="email" name="email" required />
+            </div>
+            <div>
+              <label for="telefoonnummer">Telefoonnummer</label>
+              <small
+                >Dit gebruiken we om contact met je op te nemen, controleer het
+                goed!</small
+              >
+              <input type="text" name="telefoonnummer" required />
+              <button type="submit">Adopteer</button>
+
+              <small>Alle velden zijn verplicht</small>
+            </div>
+          </fieldset>
+        </form>
+
+        <script>
+          const handleSubmit = (event) => {
+            event.preventDefault();
+
+            const myForm = event.target;
+            const formData = new FormData(myForm);
+
+            document.querySelector("form button").disabled = true;
+            document.querySelector("form button").textContent = "Wachten...";
+
+            // fetch("/", {
+            //   method: "POST",
+            //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            //   body: new URLSearchParams(formData).toString(),
+            // })
+            //   .then(() => {
+
+            setTimeout(() => {
+              document.querySelector("#notification .number").textContent =
+                formData.get("telefoonnummer");
+              document.querySelector("#notification .name").textContent =
+                formData.get("naam");
+              document.querySelector("#notification .price").textContent =
+                formData.get("vogeltjes") * 5;
+              document.querySelector("#notification .amount").textContent =
+                formData.get("vogeltjes");
+
+              document.querySelector("#notification").style.display = "block";
+              document.querySelector("#notification").focus();
+
+              document.querySelector("form").reset();
+              myForm.querySelector("button").textContent = "Adopteer";
+              myForm.querySelector("button").disabled = false;
+            }, 1000);
+            // })
+            // .catch((error) => alert(error));
+          };
+
+          document
+            .querySelector("form")
+            .addEventListener("submit", handleSubmit);
+        </script>
+
+        <p>
+          Na het bestellen zal één van de organisatoren contact met je opnemen
+          via Whatsapp voor de betaling. Na betaling worden je lotnummers
+          toegetuurd.
+        </p>
+      </div>
+    </div>
+
+    <Charity />
+    <Logobar />
+    <Footer />
+  </body>
+</html>
