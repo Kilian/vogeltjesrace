@@ -28,9 +28,13 @@ const inOrder = [platinumsponsor, goldsponsor, silversponsor, bronzesponsor, [..
       x.length ? (
         <div class="logos" data-type={x[0].frontmatter.type}>
           <h3>{title[x[0].frontmatter.type]}</h3>
-          {x.map((p) => (
-            <a href={p.frontmatter.url}><img src={p.frontmatter.logo} alt={p.frontmatter.name} /></a>
-          ))}
+          {x
+            .sort((a, b) => a.frontmatter.name.localeCompare(b.frontmatter.name))
+            .map((p) => (
+              <a href={p.frontmatter.url}>
+                <img src={p.frontmatter.logo} alt={p.frontmatter.name} />
+              </a>
+            ))}
         </div>
       ) : null
     )
@@ -84,7 +88,7 @@ const inOrder = [platinumsponsor, goldsponsor, silversponsor, bronzesponsor, [..
     text-wrap: balance;
   }
   .logos a {
-    font-size:0;
+    font-size: 0;
   }
   .logos img {
     vertical-align: middle;
