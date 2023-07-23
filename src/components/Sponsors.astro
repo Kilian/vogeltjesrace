@@ -1,40 +1,42 @@
 ---
+let sponsors = await Astro.glob("../pages/sponsors/*.md");
+let title = {
+  platinum: "Platinum sponsor",
+  goud: "Gouden sponsors",
+  zilver: "Zilveren sponsors",
+  brons: "Bronzen sponsors",
+  spandoek: "Sponsors",
+  logo: "Logosponsors",
+  geen: "Ondersteund door",
+};
+
+const platinumsponsor = sponsors.filter((x) => x.frontmatter.type === "platinum");
+const goldsponsor = sponsors.filter((x) => x.frontmatter.type === "goud");
+const silversponsor = sponsors.filter((x) => x.frontmatter.type === "zilver");
+const bronzesponsor = sponsors.filter((x) => x.frontmatter.type === "brons");
+const spandoek = sponsors.filter((x) => x.frontmatter.type === "spandoek");
+const bedrijfssponsor = sponsors.filter((x) => x.frontmatter.type === "logo");
+const geen = sponsors.filter((x) => x.frontmatter.type === "geen");
+
+const inOrder = [platinumsponsor, goldsponsor, silversponsor, bronzesponsor, [...spandoek, ...bedrijfssponsor], geen];
 ---
 
 <div class="sponsorwrap">
   <h2>Onze sponsors</h2>
-  <div class="logos">
-    <img src="/assets/img/logos/dear-logo.png" alt="DEAR" />
-    <img
-      src="/assets/img/logos/lbsnn.jpg"
-      alt="Landelijk Beraad Stedenbanden Nederland-Nicaragua"
-    />
-    <img
-      src="/assets/img/logos/1892-dark.png"
-      alt="Restaurant 1892 Eten en Drinken"
-    />
-    <img src="/assets/img/logos/kaashuis.png" alt="'t Kaashuys" />
-    <img src="/assets/img/logos/geusz.jpg" alt="Geusz!" />
-    <img
-      src="/assets/img/logos/magischzoetermeer.png"
-      alt="Magisch Zoetermeer"
-    />
-    <img src="/assets/img/logos/deplek.png" alt="Zoetermeer is de plek" />
-    <img src="/assets/img/logos/smalltalk.jpg" alt="Small Talk" />
-    <img src="/assets/img/logos/jeugdbrandweer.png" alt="Jeugdbrandweer" />
-    <img src="/assets/img/logos/nevermind.jpg" alt="Circus Never Mind" />
-    <img src="/assets/img/logos/zoeteaarde.jpg" alt="Zoete Aarde" />
-    <img src="/assets/img/logos/baristahans.jpg" alt="Barista Hans" />
-    <img src="/assets/img/logos/seghwaert.png" alt="Hof van Seghwaert" />
-    <img src="/assets/img/logos/goudensleutel.jpg" alt="De Gouden Sleutel" />
-    <img src="/assets/img/logos/vanwaay.jpg" alt="Van Waay" />
-    <img src="/assets/img/logos/pentapro.png" alt="PentaPro" />
-    <img src="/assets/img/logos/polypane.png" alt="Polypane" />
-  </div>
+  {
+    inOrder.map((x) =>
+      x.length ? (
+        <div class="logos" data-type={x[0].frontmatter.type}>
+          <h3>{title[x[0].frontmatter.type]}</h3>
+          {x.map((p) => (
+            <a href={p.frontmatter.url}><img src={p.frontmatter.logo} alt={p.frontmatter.name} /></a>
+          ))}
+        </div>
+      ) : null
+    )
+  }
   <p>
-    Wilt u de vogeltjesrace ook sponsoren? Lees meer over onze <a
-      href="#sponsoring">sponsoringsmogelijkheden</a
-    >.
+    Wilt u de vogeltjesrace ook sponsoren? Lees meer over onze <a href="#sponsoring">sponsoringsmogelijkheden</a>.
   </p>
 </div>
 
@@ -65,6 +67,15 @@
     color: #f08535;
     text-align: center;
   }
+  .sponsorwrap h3 {
+    text-align: center;
+    margin: 0 0 1rem;
+    font-size: 2rem;
+    max-width: 100%;
+    font-family: Boogaloo;
+    color: #a6b22a;
+    text-align: center;
+  }
   .logos {
     padding: 2rem 2rem 4rem;
     gap: 1rem;
@@ -72,12 +83,19 @@
     margin: 0 auto;
     text-wrap: balance;
   }
-
+  .logos a {
+    font-size:0;
+  }
   .logos img {
     vertical-align: middle;
     display: inline-block;
     max-width: 180px;
     max-height: 50px;
     margin: 1rem;
+  }
+
+  :is([data-type="platinum"], [data-type="goud"], [data-type="zilver"], [data-type="brons"]) img {
+    max-width: 320px;
+    max-height: 100px;
   }
 </style>
