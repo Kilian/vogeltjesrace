@@ -1,6 +1,7 @@
 ---
 name: De Zoete Aarde
-url: "#"
+url: https://www.zoeteaarde.nl/
+zichtbaar: true
 logo: /assets/img/logos/zoeteaarde.jpg
-type: geen
+type: kraam
 ---

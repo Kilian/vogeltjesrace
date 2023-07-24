@@ -1,6 +1,7 @@
 ---
 name: Barista Hans
-url: "#"
+url: https://baristahans.nl
+zichtbaar: true
 logo: /assets/img/logos/baristahans.jpg
-type: geen
+type: kraam
 ---

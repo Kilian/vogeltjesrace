@@ -10,13 +10,13 @@ let title = {
   geen: "Ondersteund door",
 };
 
-const platinumsponsor = sponsors.filter((x) => x.frontmatter.type === "platinum");
-const goldsponsor = sponsors.filter((x) => x.frontmatter.type === "goud");
-const silversponsor = sponsors.filter((x) => x.frontmatter.type === "zilver");
-const bronzesponsor = sponsors.filter((x) => x.frontmatter.type === "brons");
-const spandoek = sponsors.filter((x) => x.frontmatter.type === "spandoek");
-const bedrijfssponsor = sponsors.filter((x) => x.frontmatter.type === "logo");
-const geen = sponsors.filter((x) => x.frontmatter.type === "geen");
+const platinumsponsor = sponsors.filter((x) => x.frontmatter.type === "platinum" && x.frontmatter.zichtbaar);
+const goldsponsor = sponsors.filter((x) => x.frontmatter.type === "goud" && x.frontmatter.zichtbaar);
+const silversponsor = sponsors.filter((x) => x.frontmatter.type === "zilver" && x.frontmatter.zichtbaar);
+const bronzesponsor = sponsors.filter((x) => x.frontmatter.type === "brons" && x.frontmatter.zichtbaar);
+const spandoek = sponsors.filter((x) => x.frontmatter.type === "spandoek" && x.frontmatter.zichtbaar);
+const bedrijfssponsor = sponsors.filter((x) => x.frontmatter.type === "logo" && x.frontmatter.zichtbaar);
+const geen = sponsors.filter((x) => ['geen', 'speciaal', 'kraam'].includes(x.frontmatter.type) && x.frontmatter.zichtbaar);
 
 const inOrder = [platinumsponsor, goldsponsor, silversponsor, bronzesponsor, [...spandoek, ...bedrijfssponsor], geen];
 ---

@@ -11,6 +11,7 @@ export default defineConfig({
           name: "git-gateway",
           branch: "latest",
         },
+        display_url: "https://vogeltjesrace.nl",
         // Configure where our media assets are stored & served from
         media_folder: "public/assets/img/logos",
         public_folder: "/assets/img/logos",
@@ -46,6 +47,9 @@ export default defineConfig({
             ],
           },
           {
+            editor: {
+              preview: false,
+            },
             name: "sponsors",
             label: "Sponsors",
             label_singular: "sponsors",
@@ -55,12 +59,13 @@ export default defineConfig({
             fields: [
               { name: "name", widget: "string", label: "Naam sponsor" },
               { name: "url", widget: "string", label: "Website" },
+              { name: "zichtbaar", widget: "boolean", label: "Zichtbaar op site", default: true },
               { name: "logo", widget: "image", label: "Logo" },
               {
                 name: "type",
                 widget: "select",
                 label: "Sponsortype",
-                default: 'Bedrijfslogo',
+                default: "Bedrijfslogo",
                 options: [
                   { label: "Platinum", value: "platinum" },
                   { label: "Goud", value: "goud" },
@@ -68,6 +73,8 @@ export default defineConfig({
                   { label: "Brons", value: "brons" },
                   { label: "Bedrijfslogo Spandoeken", value: "spandoek" },
                   { label: "Bedrijfslogo", value: "logo" },
+                  { label: "Speciaal", value: "speciaal" },
+                  { label: "Kraam", value: "kraam" },
                   { label: "Geen", value: "geen" },
                 ],
               },
