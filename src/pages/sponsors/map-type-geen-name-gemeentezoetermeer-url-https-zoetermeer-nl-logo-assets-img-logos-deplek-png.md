@@ -1,5 +1,5 @@
 ---
-name: Gemeente Zoetermeer
+name: Zoetermeer
 url: https://www.zoetermeerisdeplek.nl/
 zichtbaar: true
 logo: /assets/img/logos/deplek.png
