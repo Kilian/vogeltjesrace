@@ -9,6 +9,7 @@ export default defineConfig({
         // Use Netlify’s “Git Gateway” authentication and target our default branch
         backend: {
           name: "git-gateway",
+          repo: "Kilian/vogeltjesrace",
           branch: "latest",
         },
         display_url: "https://vogeltjesrace.nl",
@@ -24,7 +25,10 @@ export default defineConfig({
             folder: "src/pages/uitslagen/",
             create: false,
             delete: false,
-            fields: [{ name: "title", widget: "string", label: "titel" }, { name: "uitslag", widget: "text", label: "Lijst met uitslagen", required: false }],
+            fields: [
+              { name: "title", widget: "string", label: "titel" },
+              { name: "uitslag", widget: "text", label: "Lijst met uitslagen", required: false },
+            ],
           },
           // {
           //   name: "posts",
