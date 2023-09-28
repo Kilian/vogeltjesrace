@@ -1,4 +1,7 @@
 ---
 title: uitslagen
-uitslag: ""
+uitslag: |
+  21
+  27
+  13
 ---
