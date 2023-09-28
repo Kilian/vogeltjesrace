@@ -1,5 +1,9 @@
 ---
 import { SITE } from "../config";
+let uitslag = await Astro.glob("../pages/uitslagen/*.md");
+const uitslagbekend = uitslag[0].frontmatter.uitslag.split("\n").length > 1;
+
+console.log("hi", uitslagbekend, uitslag[0].frontmatter.uitslag.split("\n"));
 ---
 
 <header>
@@ -13,14 +17,15 @@ import { SITE } from "../config";
             Vogeltjesrace 2023
           </h1>
           <h2>Zaterdag 30 september van 14:00 tot 18:00</h2>
-          <p>
-            Locatie: Buurtvaart naast het CKC, parkeerplaats Osylaan, Zoetermeer
-          </p>
-          <h3>
-            Optreden liveband Small Talk • Scouting Ashanti • Kinderactiviteiten
-            • Springkussen • Kleurwedstrijd
-          </h3>
-          <a href="/adopteer/">Adopteer je Vogeltje(s)</a>
+          <p>Locatie: Buurtvaart naast het CKC, parkeerplaats Osylaan, Zoetermeer</p>
+          <h3>Optreden liveband Small Talk • Scouting Ashanti • Kinderactiviteiten • Springkussen • Kleurwedstrijd</h3>
+          {
+            uitslagbekend ? (
+              <a href="/uitslag/">Bekijk de uitslag!</a>
+            ) : (
+              <a href="/adopteer/">Adopteer je Vogeltje(s)</a>
+            )
+          }
           <a class="secondary" href="#meer">Meer info</a>
         </div>
       </div>
@@ -143,7 +148,7 @@ import { SITE } from "../config";
     font-weight: 500;
     font-size: 1.5rem;
     margin-right: 1rem;
-    margin-bottom: 0.5rem
+    margin-bottom: 0.5rem;
   }
 
   header a.secondary {
