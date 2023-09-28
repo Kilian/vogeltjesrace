@@ -1,4 +1,4 @@
 ---
 title: uitslagen
-uitslag: "\n"
+uitslag: "\n\n"
 ---
