@@ -1,4 +1,4 @@
 ---
 title: uitslagen
-uitslag: Volgt 30/9
+uitslag: Volgt op 30 september
 ---
